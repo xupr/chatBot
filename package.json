@@ -1,0 +1,16 @@
+{
+  "name": "node-skeleton",
+  "version": "0.0.0",
+  "description": "NodeJs + express + angularJs skeleton.",
+  "main": "app.js",
+  "author": "OriW",
+  "dependencies": {
+    "deasync": "^0.1.6",
+    "express": "~4.6.1",
+    "lodash": "^4.13.1",
+    "node-wordnet": "^0.1.12",
+    "pos": "^0.3.0",
+    "socket.io": "^1.4.6",
+    "wndb-with-exceptions": "^3.0.1"
+  }
+}

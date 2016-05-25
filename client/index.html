@@ -1,0 +1,86 @@
+<!doctype html>
+<html ng-app="app">
+	<head>
+		<meta charset="utf-8">
+		<title>NodeJS Skeleton</title>
+
+		<!-- Load js dep -->
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="js/lib/angular.min.js"></script>
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-sanitize.js"
+></script>
+		<script src="js/app.socket.js"></script>
+		<script src="js/app.js"></script>
+		<!-- Some css -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<style type="text/css">
+			.container {
+				position: fixed;
+				padding: 10px 20px;
+				margin: 30px 15%;
+				height: 85%;
+				width: 70%;
+				background: rgb(240, 240, 240);
+			}
+			
+			.input {
+				position: absolute;
+				left: 0;
+				width: 100%;
+			}
+
+			.user {
+				color: blue;
+			}
+
+			.user-current {
+				color: green;
+			}
+
+			.user-bot {
+				color: red;
+			}
+
+			.user-current-mentioned {
+				background: green;
+				color: white;
+			}
+
+			.user-mentioned {
+				background: blue;
+				color: white;
+			}
+
+			.messageList {
+				width: 100%;
+				height: 100%;
+				margin-bottom: 10px;
+				overflow-y: scroll;
+			}
+		</style>
+	</head>
+	<!-- appController -->
+	<body ng-controller="appController">
+		<div class="container">
+			<!-- message list -->
+			<div class="messageList">
+				<div class="message" ng-repeat="message in messages track by $index">
+					<span>
+						<span ng-class="getUserClass(message)"><b>{{message.user}}</b></span>:
+					</span>
+					<span ng-bind-html="parseMessage(message)" class="text"></span>
+				</div>
+			</div>
+
+			<!-- input for user messages -->
+			<div class="input">
+				<div class="input-group">
+					<input type="text" class="form-control" ng-model="message" ng-keypress="detectEnter($event)">
+					<span class="input-group-btn">
+						<button ng-click="sendMessage()" class="btn btn-default" type="button">send</button>
+					</span>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
